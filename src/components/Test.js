@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 const Test = () => {
     useEffect( () => {
         axios({
-            baseURL: 'http://www.boredapi.com/api/activity',
+            baseURL: 'https://www.boredapi.com/api/activity',
         }).then( (apiData) => {
             console.log(apiData);
         })
@@ -17,7 +17,7 @@ const Test = () => {
 
     useEffect( () => {
         axios({
-            baseURL: 'http://api.giphy.com/v1/gifs/random',
+            baseURL: 'https://api.giphy.com/v1/gifs/random',
             params: {
                 api_key: 'BIu9Bc57aem4i6oC5ioIc5KjHOuYYOfy',
                 tag: 'bored'
