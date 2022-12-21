@@ -1,6 +1,6 @@
-import axios from "axios";
+// import axios from "axios";
 
-import { useState, useEffect} from 'react';
+// import { useState, useEffect} from 'react';
 
 // giphy key
 
