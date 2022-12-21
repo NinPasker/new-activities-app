@@ -1,34 +1,34 @@
-// import axios from "axios";
+import axios from "axios";
 
-// import { useState, useEffect} from 'react';
+import { useEffect } from 'react';
 
 // giphy key
 
 // BIu9Bc57aem4i6oC5ioIc5KjHOuYYOfy
 
-// const Test = () => {
-//     useEffect( () => {
-//         axios({
-//             baseURL: 'http://www.boredapi.com/api/activity',
-//         }).then( (apiData) => {
-//             console.log(apiData);
-//         })
-//     })
+const Test = () => {
+    useEffect( () => {
+        axios({
+            baseURL: 'http://www.boredapi.com/api/activity',
+        }).then( (apiData) => {
+            console.log(apiData);
+        })
+    })
 
-//     useEffect( () => {
-//         axios({
-//             baseURL: 'http://api.giphy.com/v1/gifs/random',
-//             params: {
-//                 api_key: 'BIu9Bc57aem4i6oC5ioIc5KjHOuYYOfy',
-//                 tag: 'bored'
-//             }            
-//         }).then( (apiData) => {
-//             console.log(apiData);
-//         })
-//     })
-// }
+    useEffect( () => {
+        axios({
+            baseURL: 'http://api.giphy.com/v1/gifs/random',
+            params: {
+                api_key: 'BIu9Bc57aem4i6oC5ioIc5KjHOuYYOfy',
+                tag: 'bored'
+            }            
+        }).then( (apiData) => {
+            console.log(apiData);
+        })
+    })
+}
 
-// export default Test;
+export default Test;
 
 // PSEUDO CODE //
 
