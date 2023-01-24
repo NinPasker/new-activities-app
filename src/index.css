@@ -2,8 +2,91 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 .clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
 
-html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; background-color: #343a40;}
 
 *, *:before, *:after {box-sizing: inherit}
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
+
+body {
+    color: #dee2e6;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: .2rem;
+}
+
+a {
+    text-decoration: none;
+    color: #ced4da;
+    cursor: pointer;
+    transition: .3s;
+}
+
+a:hover,
+a:focus {
+    color: #f5cb5c;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #f5cb5c;
+}
+
+h1,
+.activityForm,
+footer {
+    text-align: center;
+}
+
+.activityForm form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    font-size: 1.3rem;
+    padding-bottom: 20px;
+}
+
+select,
+button {
+    text-align: center;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 50px;
+    background-color: #ced4da;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button {
+    margin-top: 20px;
+}
+
+button:hover,
+button:focus,
+select:hover,
+select:focus {
+    background-color: #f5cb5c;
+    color: #343a40;
+}
+
+option {
+    text-align: center;
+}
+
+img {
+    border-radius: 1rem;
+    box-shadow: 1px 1px 5px 10px #dee2e6;
+    margin: 20px;
+}
+
+h3 {
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+    letter-spacing: .5rem;
+}
+
+footer {
+    padding: 20px;
+}

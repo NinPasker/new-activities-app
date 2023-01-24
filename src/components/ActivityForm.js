@@ -5,8 +5,8 @@ import axios from 'axios';
 const ActivityForm = ({ handleSubmit, boredProp }) => {
 
     const [ userSelection, setUserSelection ] = useState("");
-    const [isVisible, setIsVisible] = useState(false);
-    const [gifGenerator, setGifGenerator] = useState(null);
+    const [ isVisible, setIsVisible ] = useState(false);
+    const [ gifGenerator, setGifGenerator ] = useState(null);
 
     useEffect( () => {
         axios({
@@ -31,7 +31,7 @@ const ActivityForm = ({ handleSubmit, boredProp }) => {
 
 
     return (
-        <section>
+        <section className='activityForm'>
             {/* ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"] */}
             <form action="" onSubmit={(event) => { handleSubmit(event, userSelection)} }>
                 <label htmlFor="filtration">Choose a type of activity you'd like to do to combat bordem.</label>
@@ -50,8 +50,8 @@ const ActivityForm = ({ handleSubmit, boredProp }) => {
                 <button onClick={ handleClick }>
                     {
                         isVisible
-                            ? 'Hide this task.'
-                            : 'Generate Something to Do!'
+                            ? 'Hide this task'
+                            : 'Generate a task'
                     }</button>
 
                     {
