@@ -1,34 +1,44 @@
-import axios from "axios";
+import ActivityForm from "./ActivityForm";
 
-import { useEffect } from 'react';
+import axios from "axios";
+import { useEffect, useState } from 'react';
 
 // giphy key
 
 // BIu9Bc57aem4i6oC5ioIc5KjHOuYYOfy
 
-const Test = () => {
+const ActivityContainer = () => {
+    const [ boredData, setBoredData ] = useState(null);
+    const [ userSelection, setUserSelection ] = useState(null);
+
+
     useEffect( () => {
         axios({
             baseURL: 'https://www.boredapi.com/api/activity',
-        }).then( (apiData) => {
-            console.log(apiData);
-        })
-    })
-
-    useEffect( () => {
-        axios({
-            baseURL: 'https://api.giphy.com/v1/gifs/random',
             params: {
-                api_key: 'BIu9Bc57aem4i6oC5ioIc5KjHOuYYOfy',
-                tag: 'bored'
-            }            
+                type: userSelection
+            }
         }).then( (apiData) => {
-            console.log(apiData);
+            setBoredData(apiData.data.activity);
         })
-    })
+    }, [userSelection]);
+
+    const userActivity = (event, userSelection) => {
+        event.preventDefault();
+        
+        setUserSelection(userSelection);
+    }
+
+    return (
+        <section>
+            <ActivityForm handleSubmit={userActivity} boredProp={boredData}/>
+        </section>
+    )
+
+
 }
 
-export default Test;
+export default ActivityContainer;
 
 // PSEUDO CODE //
 
