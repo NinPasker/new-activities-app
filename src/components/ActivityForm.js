@@ -2,28 +2,26 @@ import { useState, useEffect } from 'react';
 import GeneratedActivity from './GeneratedActivity';
 import axios from 'axios';
 
-const ActivityForm = ({ handleSubmit, boredProp }) => {
+const ActivityForm = ({ handleSubmit, boredProp, isVisible}) => {
 
     const [ userSelection, setUserSelection ] = useState("");
-    const [ isVisible, setIsVisible ] = useState(false);
+
     const [ gifGenerator, setGifGenerator ] = useState(null);
 
     useEffect( () => {
-        axios({
-            baseURL: 'https://api.giphy.com/v1/gifs/search',
-            params: {
-                api_key: 'BIu9Bc57aem4i6oC5ioIc5KjHOuYYOfy',
-                q: boredProp,
-                limit: 1
-            }
-        }).then((apiData) => {
-            setGifGenerator(apiData.data.data[0].images.original.url);
-        })
-    })
-
-    const handleClick = () => {
-        setIsVisible(!isVisible);
-    }
+        if (boredProp !== null) {
+            axios({
+                baseURL: 'https://api.giphy.com/v1/gifs/search',
+                params: {
+                    api_key: 'BIu9Bc57aem4i6oC5ioIc5KjHOuYYOfy',
+                    q: boredProp,
+                    limit: 1
+                }
+            }).then((apiData) => {
+                setGifGenerator(apiData.data.data[0].images.original.url);
+            })
+        }
+    }, [boredProp]);
 
     const handleChange = (e) => {
         setUserSelection(e.target.value);
@@ -47,7 +45,7 @@ const ActivityForm = ({ handleSubmit, boredProp }) => {
                     <option value="music">Music 🎵</option>
                     <option value="busywork">Busy Work 🐝</option>
                 </select>
-                <button onClick={ handleClick }>
+                <button>
                     {
                         isVisible
                             ? 'Hide this task'

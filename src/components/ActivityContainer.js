@@ -10,17 +10,19 @@ import { useEffect, useState } from 'react';
 const ActivityContainer = () => {
     const [ boredData, setBoredData ] = useState(null); // initialize state to hold boredApi response
     const [ userSelection, setUserSelection ] = useState(null); // initialize state to hold users selection
-
+    const [ isVisible, setIsVisible ] = useState(false);
     // api call being made to the bored api on component mount. 
     useEffect( () => {
-        axios({
-            baseURL: 'https://www.boredapi.com/api/activity',
-            params: {
-                type: userSelection
-            }
-        }).then( (apiData) => {
-            setBoredData(apiData.data.activity);
-        })
+        if (userSelection !== null) {
+            axios({
+                baseURL: 'https://www.boredapi.com/api/activity',
+                params: {
+                    type: userSelection
+                }
+            }).then( (apiData) => {
+                setBoredData(apiData.data.activity);
+            })
+        }
     }, [userSelection]);
 
     // setting a function to prevent default form behaviour and setting the userSelection to state.
@@ -28,12 +30,13 @@ const ActivityContainer = () => {
         event.preventDefault();
         
         setUserSelection(userSelection);
+        setIsVisible(!isVisible);
     }
 
     // mounting ActivityForm whilst passing both userActivity function & boredData via props to be used in that component. 
     return (
         <section>
-            <ActivityForm handleSubmit={userActivity} boredProp={boredData}/>
+            <ActivityForm handleSubmit={userActivity} boredProp={boredData} isVisible={isVisible}/>
         </section>
     )
 
